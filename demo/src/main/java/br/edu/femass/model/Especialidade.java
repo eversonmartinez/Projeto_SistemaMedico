@@ -9,7 +9,7 @@ public class Especialidade {
 
     private static Long ultimoId=0L;
     
-    public Especialidade(){}    //método vazio para o JavaFx
+    public Especialidade(){}    //método vazio exigido pelo JavaFx
 
     public Especialidade(String titulo){
         this.titulo=titulo;
@@ -21,16 +21,8 @@ public class Especialidade {
         return this.titulo;
     }
 
-    public void setTitulo(String titulo){
-        this.titulo=titulo;
-    }
-
     public Long getId(){
         return this.id;
-    }
-
-    public void setId(Long id){
-        this.id=id;
     }
 
     public void atualizarUltimoId(List<Especialidade> especialidades){  //verificar isso melhor depois

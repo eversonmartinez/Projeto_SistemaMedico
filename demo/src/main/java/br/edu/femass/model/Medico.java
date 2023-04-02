@@ -1,24 +1,21 @@
 package br.edu.femass.model;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
-public class Medico {
+public class Medico extends Pessoa{
     
-    private String crm; //crm será o atributo identificador
-    private String nome;
-    private Set<Especialidade> especialidades; //lista pro caso de mais de uma especialidade
-    private String cpf; //cpf será opcional
+    private String crm; //crm será um atributo obrigatório (um médico pode ter mais de um crm?)
+    private List<Especialidade> especialidades = new ArrayList<Especialidade>(); //lista pro caso de mais de uma especialidade
     private Long id;
 
-    private Long ultimoId=0L;
+    private static Long ultimoId=0L;
 
     public Medico() {
     }
 
-    public Medico(String crm, String nome, Especialidade especialidade) {
+    public Medico(String cpf, String nome, String crm, Especialidade especialidade) {
+        super(nome, cpf);
         this.crm = crm;
-        this.nome = nome;
         especialidades.add(especialidade);  //acredito que eu tenha que instanciar a lista
         this.id=ultimoId+1L;
         ultimoId++;
@@ -26,6 +23,10 @@ public class Medico {
 
     public String getCrm() {
         return crm;
+    }
+
+    public void setCrm(String crm){
+        this.crm = crm;
     }
 
     public String getNome() {
@@ -40,16 +41,16 @@ public class Medico {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public void adicionarEspecialidade(Especialidade especialidade){
         especialidades.add(especialidade);
     }
 
     public void excluirEspecialidade(Especialidade especialidade){
         especialidades.remove(especialidade);
+    }
+
+    public List<Especialidade> getEspecialidades(){
+        return this.especialidades;
     }
 
     public void atualizarUltimoId(List<Medico> medicos){  //verificar isso melhor depois
@@ -76,10 +77,10 @@ public class Medico {
         if (getClass() != obj.getClass())
             return false;
         Medico other = (Medico) obj;
-        if (crm == null) {
-            if (other.crm != null)
+        if (cpf == null) {
+            if (other.cpf != null)
                 return false;
-        } else if (!crm.equals(other.crm))
+        } else if (!cpf.equals(other.cpf))
             return false;
         return true;
     }
