@@ -25,6 +25,10 @@ public class Especialidade {
         return this.id;
     }
 
+    public Long getUltimoId(){
+        return this.ultimoId;
+    }
+
     public void atualizarUltimoId(List<Especialidade> especialidades){  //verificar isso melhor depois
         for(Especialidade especialidade : especialidades){
             if(especialidade.getId()>ultimoId)

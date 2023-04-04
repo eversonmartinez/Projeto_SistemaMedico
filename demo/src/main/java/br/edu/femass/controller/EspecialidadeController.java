@@ -18,7 +18,7 @@ public class EspecialidadeController {
 
     @FXML
     private void btnLimpar_Click(){
-        System.out.println("limpinho");
+        txtTitulo.setText("");
     }
 
     @FXML
@@ -28,7 +28,10 @@ public class EspecialidadeController {
 
     @FXML
     private void btnGravar_Click(){
-        System.out.println("Gravadinho");
+        Especialidade esp = new Especialidade(txtTitulo.getText());
+        gravar(esp);
+        txtId.setText(String.valueOf(esp.getUltimoId()+1L));
+        btnLimpar_Click();
     }
 
     @FXML
