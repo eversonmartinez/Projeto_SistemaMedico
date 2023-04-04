@@ -1,11 +1,12 @@
 package br.edu.femass.model;
 
-import java.util.List;
+import java.util.Set;
 //Classe Especialidade, comecei o programa por aqui
 public class Especialidade {
     
     private Long id;    //pretendo colocar id para todas as classes
     private String titulo;  //referente ao nome da especialidade
+    private Boolean ativo;
 
     private static Long ultimoId=0L;
     
@@ -14,6 +15,7 @@ public class Especialidade {
     public Especialidade(String titulo){
         this.titulo=titulo;
         this.id=ultimoId+1L;
+        this.ativo=true;
         ultimoId++;
     }
 
@@ -25,11 +27,15 @@ public class Especialidade {
         return this.id;
     }
 
-    public Long getUltimoId(){
-        return this.ultimoId;
+    public void setAtivo(Boolean ativo){
+        this.ativo=ativo;
     }
 
-    public void atualizarUltimoId(List<Especialidade> especialidades){  //verificar isso melhor depois
+    public Boolean getAtivo(){
+        return this.ativo;
+    }
+
+    public static void atualizarUltimoId(Set<Especialidade> especialidades){  //verificar isso melhor depois
         for(Especialidade especialidade : especialidades){
             if(especialidade.getId()>ultimoId)
                 ultimoId=especialidade.getId();

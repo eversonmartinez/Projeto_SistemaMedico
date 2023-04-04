@@ -1,5 +1,7 @@
 package br.edu.femass.controller;
 
+import br.edu.femass.Util.Alerta;
+import br.edu.femass.dao.EspecialidadeDao;
 import br.edu.femass.model.Especialidade;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -16,6 +18,8 @@ public class EspecialidadeController {
     @FXML
     private TextField txtTitulo;
 
+    EspecialidadeDao especialidadeDao = new EspecialidadeDao();
+
     @FXML
     private void btnLimpar_Click(){
         txtTitulo.setText("");
@@ -28,10 +32,17 @@ public class EspecialidadeController {
 
     @FXML
     private void btnGravar_Click(){
-        Especialidade esp = new Especialidade(txtTitulo.getText());
-        gravar(esp);
-        txtId.setText(String.valueOf(esp.getUltimoId()+1L));
+        try{Especialidade esp = new Especialidade(txtTitulo.getText());
+        if(!especialidadeDao.gravar(esp)){
+            Alerta.exibir("Não foi possível gravar o cliente");
+            return;
+        }
+        txtId.setText(String.valueOf(esp.getId()+1L));
         btnLimpar_Click();
+        exibirEspecialidades();
+        }catch(Exception e){
+            Alerta.exibir(e.getMessage());
+        }
     }
 
     @FXML
@@ -42,5 +53,9 @@ public class EspecialidadeController {
     @FXML
     private void listaCliente_mouseClicked(){
         System.out.println("clicouuu");
+    }
+
+    private void exibirEspecialidades(){
+        
     }
 }
