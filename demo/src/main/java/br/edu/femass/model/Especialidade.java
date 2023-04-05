@@ -67,6 +67,9 @@ public class Especialidade {
         return true;
     }
 
-    
+    @Override
+    public String toString() {
+        return titulo;
+    }
 
 }
