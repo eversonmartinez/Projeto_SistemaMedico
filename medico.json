@@ -1,0 +1,12 @@
+[ {
+  "nome" : "123456789",
+  "cpf" : "Jose Bezerra",
+  "crm" : "RJ:2010",
+  "especialidades" : [ {
+    "id" : 4,
+    "titulo" : "Otorrinolaringologista",
+    "ativo" : true
+  } ],
+  "id" : 1,
+  "ativo" : true
+} ]

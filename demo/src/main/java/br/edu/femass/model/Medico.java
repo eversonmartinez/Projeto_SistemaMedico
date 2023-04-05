@@ -2,11 +2,13 @@ package br.edu.femass.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 public class Medico extends Pessoa{
     
     private String crm; //crm será um atributo obrigatório (um médico pode ter mais de um crm?)
     private List<Especialidade> especialidades = new ArrayList<Especialidade>(); //lista pro caso de mais de uma especialidade
     private Long id;
+    private Boolean ativo;
 
     private static Long ultimoId=0L;
 
@@ -18,6 +20,7 @@ public class Medico extends Pessoa{
         this.crm = crm;
         especialidades.add(especialidade);  //acredito que eu tenha que instanciar a lista
         this.id=ultimoId+1L;
+        this.ativo = true;
         ultimoId++;
     }
 
@@ -41,6 +44,14 @@ public class Medico extends Pessoa{
         return cpf;
     }
 
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
     public void adicionarEspecialidade(Especialidade especialidade){
         especialidades.add(especialidade);
     }
@@ -53,7 +64,7 @@ public class Medico extends Pessoa{
         return this.especialidades;
     }
 
-    public void atualizarUltimoId(List<Medico> medicos){  //verificar isso melhor depois
+    public static void atualizarUltimoId(Set<Medico> medicos){  
         for(Medico medico : medicos){
             if(medico.getId()>ultimoId)
                 ultimoId=medico.getId();
@@ -85,7 +96,9 @@ public class Medico extends Pessoa{
         return true;
     }
 
-    
-
+    @Override
+    public String toString() {
+        return nome;
+    }
     
 }

@@ -28,8 +28,17 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void handleBtnMedicoAction(ActionEvent event) {
-        System.out.println("You clicked me!");
+    private void handleBtnMedicoAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Medico.fxml"));
+        
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+        scene.getRoot().setStyle("-fx-font-family: 'serif'");
+
+        Stage stage = new Stage();
+        stage.setTitle("Cadastro de Médicos");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
