@@ -74,7 +74,7 @@ public class MedicoController implements Initializable {
 
     @FXML
     private void btnGravar_Click(){
-        try{Medico medico = new Medico(txtNome.getText(), txtCpf.getText(), txtCrm.getText(), CboEspecialidade.getSelectionModel().getSelectedItem());
+        try{Medico medico = new Medico(txtCpf.getText(), txtNome.getText(), txtCrm.getText(), CboEspecialidade.getSelectionModel().getSelectedItem());
         if(!medicoDao.gravar(medico)){
             Alerta.exibir("Não foi possível gravar o médico");
             return;

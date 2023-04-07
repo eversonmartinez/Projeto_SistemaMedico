@@ -46,7 +46,7 @@ public class EspecialidadeController implements Initializable{
         else{
             try{
                 if(!especialidadeDao.excluir(especialidade))
-                    Alerta.exibir("Não foi possível excluir oa especialidade selecionada!");
+                    Alerta.exibir("Não foi possível excluir a especialidade selecionada!");
             }
             catch(Exception ex){
                 ex.printStackTrace();
