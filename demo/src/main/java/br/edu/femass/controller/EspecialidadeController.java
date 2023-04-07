@@ -46,7 +46,7 @@ public class EspecialidadeController implements Initializable{
         else{
             try{
                 if(!especialidadeDao.excluir(especialidade))
-                    Alerta.exibir("Não foi possível excluir oa especialidade selecionada!");
+                    Alerta.exibir("Não foi possível excluir a especialidade selecionada!");
             }
             catch(Exception ex){
                 ex.printStackTrace();
@@ -57,12 +57,12 @@ public class EspecialidadeController implements Initializable{
 
     @FXML
     private void btnGravar_Click(){
-        try{Especialidade esp = new Especialidade(txtTitulo.getText());
-        if(!especialidadeDao.gravar(esp)){
-            Alerta.exibir("Não foi possível gravar o cliente");
+        try{Especialidade especialidade = new Especialidade(txtTitulo.getText());
+        if(!especialidadeDao.gravar(especialidade)){
+            Alerta.exibir("Não foi possível gravar o médico");
             return;
         }
-        txtId.setText(String.valueOf(esp.getId()+1L));
+        txtId.setText(String.valueOf(especialidade.getId()+1L));
         btnLimpar_Click();
         exibirEspecialidades();
         }catch(Exception e){

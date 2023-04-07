@@ -22,4 +22,8 @@
   "id" : 3,
   "titulo" : "Ginasticologista",
   "ativo" : false
+}, {
+  "id" : 7,
+  "titulo" : "",
+  "ativo" : true
 } ]

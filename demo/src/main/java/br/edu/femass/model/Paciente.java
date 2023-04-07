@@ -3,33 +3,24 @@ package br.edu.femass.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-public class Medico extends Pessoa{
-    
+
+public class Paciente extends Pessoa{
     private String crm; //crm será um atributo obrigatório (um médico pode ter mais de um crm?)
-    private List<Especialidade> especialidades = new ArrayList<Especialidade>(); //lista pro caso de mais de uma especialidade
+    private List<PlanoSaude> planosSaude = new ArrayList<PlanoSaude>(); //lista pro caso de mais de uma PlanoSaude
     private Long id;
     private Boolean ativo;
 
     private static Long ultimoId=0L;
 
-    public Medico() {
+    public Paciente() {
     }
 
-    public Medico(String cpf, String nome, String crm, Especialidade especialidade) {
+    public Paciente(String cpf, String nome, PlanoSaude planoSaude) {
         super(nome, cpf);
-        this.crm = crm;
-        especialidades.add(especialidade); 
+        planosSaude.add(planoSaude); 
         this.id=ultimoId+1L;
         this.ativo = true;
         ultimoId++;
-    }
-
-    public String getCrm() {
-        return crm;
-    }
-
-    public void setCrm(String crm){
-        this.crm = crm;
     }
 
     public String getNome() {
@@ -52,22 +43,22 @@ public class Medico extends Pessoa{
         this.ativo = ativo;
     }
 
-    public void adicionarEspecialidade(Especialidade especialidade){
-        especialidades.add(especialidade);
+    public void adicionarPlanoSaude(PlanoSaude planoSaude){
+        planosSaude.add(planoSaude);
     }
 
-    public void excluirEspecialidade(Especialidade especialidade){
-        especialidades.remove(especialidade);
+    public void excluirPlanoSaude(PlanoSaude planoSaude){
+        planosSaude.remove(planoSaude);
     }
 
-    public List<Especialidade> getEspecialidades(){
-        return this.especialidades;
+    public List<PlanoSaude> getPlanoSaudes(){
+        return this.planosSaude;
     }
 
-    public static void atualizarUltimoId(Set<Medico> medicos){  
-        for(Medico medico : medicos){
-            if(medico.getId()>ultimoId)
-                ultimoId=medico.getId();
+    public static void atualizarUltimoId(Set<Paciente> pacientes){  
+        for(Paciente paciente : pacientes){
+            if(paciente.getId()>ultimoId)
+                ultimoId=paciente.getId();
             }
     }
 
@@ -87,7 +78,7 @@ public class Medico extends Pessoa{
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Medico other = (Medico) obj;
+        Paciente other = (Paciente) obj;
         if (cpf == null) {
             if (other.cpf != null)
                 return false;
@@ -100,5 +91,4 @@ public class Medico extends Pessoa{
     public String toString() {
         return nome;
     }
-    
 }

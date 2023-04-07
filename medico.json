@@ -1,0 +1,52 @@
+[ {
+  "nome" : "123456789",
+  "cpf" : "Jose Bezerra",
+  "crm" : "RJ:2010",
+  "especialidades" : [ {
+    "id" : 4,
+    "titulo" : "Otorrinolaringologista",
+    "ativo" : true
+  } ],
+  "id" : 1,
+  "ativo" : false
+}, {
+  "nome" : "lais",
+  "cpf" : "22797",
+  "crm" : "2757",
+  "especialidades" : [ {
+    "id" : 5,
+    "titulo" : "Ginecologista",
+    "ativo" : true
+  } ],
+  "id" : 4,
+  "ativo" : true
+}, {
+  "nome" : "Antonio Carlos",
+  "cpf" : "789465465",
+  "crm" : "353487",
+  "especialidades" : [ {
+    "id" : 6,
+    "titulo" : "Pediatra",
+    "ativo" : true
+  } ],
+  "id" : 3,
+  "ativo" : true
+}, {
+  "nome" : "987654321",
+  "cpf" : "Carlos Maia",
+  "crm" : "465465465",
+  "especialidades" : [ {
+    "id" : 2,
+    "titulo" : "Ortopedista",
+    "ativo" : true
+  } ],
+  "id" : 2,
+  "ativo" : false
+}, {
+  "nome" : "",
+  "cpf" : "",
+  "crm" : "",
+  "especialidades" : [ null ],
+  "id" : 5,
+  "ativo" : true
+} ]

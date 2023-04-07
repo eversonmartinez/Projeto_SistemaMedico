@@ -1,0 +1,13 @@
+[ {
+  "id" : 1,
+  "nome" : "Unimed",
+  "ativo" : true
+}, {
+  "id" : 2,
+  "nome" : "Krakatoa",
+  "ativo" : false
+}, {
+  "id" : 3,
+  "nome" : "Sao Lucas",
+  "ativo" : true
+} ]
