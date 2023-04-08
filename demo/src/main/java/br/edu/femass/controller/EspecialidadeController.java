@@ -35,6 +35,7 @@ public class EspecialidadeController implements Initializable{
     
     @FXML
     private void btnLimpar_Click(){
+        txtId.setText("");
         txtTitulo.setText("");
     }
 
@@ -57,13 +58,18 @@ public class EspecialidadeController implements Initializable{
 
     @FXML
     private void btnGravar_Click(){
-        try{Especialidade especialidade = new Especialidade(txtTitulo.getText());
-        if(!especialidadeDao.gravar(especialidade)){
+        try{
+            if(txtTitulo.getText().length()<1){
+                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                return;
+            }
+            Especialidade especialidade = new Especialidade(txtTitulo.getText());
+            if(!especialidadeDao.gravar(especialidade)){
             Alerta.exibir("Não foi possível gravar o médico");
             return;
         }
-        txtId.setText(String.valueOf(especialidade.getId()+1L));
         btnLimpar_Click();
+        txtId.setText(String.valueOf(especialidade.getId()+1L));
         exibirEspecialidades();
         }catch(Exception e){
             Alerta.exibir(e.getMessage());

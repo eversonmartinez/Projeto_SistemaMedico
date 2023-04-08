@@ -33,7 +33,7 @@ public class PacienteDao extends Persist implements Dao<Paciente> {
        Set<Paciente> pacientes = buscar();
        for(Paciente paciente:pacientes){
             if(paciente.equals(objeto)){
-                paciente.setAtivo(true);
+                paciente.setAtivo(false);
             }
        }
        

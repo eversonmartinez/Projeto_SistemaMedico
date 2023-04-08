@@ -45,6 +45,7 @@ public class PacienteController implements Initializable {
 
     @FXML
     private void btnLimpar_Click(){
+        txtId.setText("");
         txtNome.setText("");
         txtCpf.setText("");
         cboPlanoSaude.getSelectionModel().select(null);
@@ -68,7 +69,11 @@ public class PacienteController implements Initializable {
     @FXML
     private void btnGravar_Click(){
         try{
-            Paciente pacienteSelecionado = listaPaciente.getSelectionModel().getSelectedItem();
+            if(txtNome.getText().length()<1){
+                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                return;
+            }
+            Paciente pacienteSelecionado = new Paciente(txtCpf.getText(), txtNome.getText(), cboPlanoSaude.getSelectionModel().getSelectedItem());
             if(!pacienteDao.gravar(pacienteSelecionado)){
                 Alerta.exibir("Não foi possível gravar o paciente!");
                 return;

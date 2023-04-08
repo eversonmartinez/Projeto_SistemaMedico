@@ -1,0 +1,31 @@
+[ {
+  "nome" : "Damiao Cosmo",
+  "cpf" : "123456789",
+  "id" : 1,
+  "ativo" : true,
+  "planoSaudes" : [ {
+    "id" : 1,
+    "nome" : "Unimed",
+    "ativo" : true
+  } ]
+}, {
+  "nome" : "Kelly Key",
+  "cpf" : "9874654132",
+  "id" : 2,
+  "ativo" : true,
+  "planoSaudes" : [ {
+    "id" : 3,
+    "nome" : "Sao Lucas",
+    "ativo" : true
+  } ]
+}, {
+  "nome" : "LOrrainy",
+  "cpf" : "19221354",
+  "id" : 3,
+  "ativo" : false,
+  "planoSaudes" : [ {
+    "id" : 4,
+    "nome" : "Cartão de Todes",
+    "ativo" : true
+  } ]
+} ]

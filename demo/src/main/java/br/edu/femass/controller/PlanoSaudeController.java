@@ -39,6 +39,7 @@ public class PlanoSaudeController implements Initializable{
     
     @FXML
     private void btnLimpar_Click(){
+        txtId.setText("");
         txtNome.setText("");
     }
 
@@ -59,14 +60,18 @@ public class PlanoSaudeController implements Initializable{
     @FXML
     private void btnGravar_Click(){
         try{
+            if(txtNome.getText().length()<1){
+                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                return;
+            }
             PlanoSaude planoSaude = new PlanoSaude(txtNome.getText());
             if(!planoSaudeDao.gravar(planoSaude)){
                 Alerta.exibir("Não foi possível gravar o plano de saúde!");
                 return;
             }
-            txtId.setText(String.valueOf(planoSaude.getId() + 1L));
             exibirPlanosSaude();
             btnLimpar_Click();   
+            txtId.setText(String.valueOf(planoSaude.getId() + 1L));
         }catch(Exception e){
             Alerta.exibir(e.getMessage());
         }  

@@ -36,7 +36,7 @@
             <Label text="Plano de Saúde" GridPane.rowIndex="4" />
             <TextField fx:id="txtNome" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
             <TextField fx:id="txtCpf" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ComboBox fx:id="CboPlanoSaude" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cboPlanoSaude" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <Button fx:id="btnLimpar" layoutX="25.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnLimpar_Click" text="Limpar campos" />
