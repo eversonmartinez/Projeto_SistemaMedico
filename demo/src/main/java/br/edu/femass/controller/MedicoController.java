@@ -48,6 +48,7 @@ public class MedicoController implements Initializable {
     
     @FXML
     private void btnLimpar_Click(){
+        txtId.setText("");
         txtNome.setText("");
         txtCpf.setText("");
         txtCrm.setText("");
@@ -74,13 +75,22 @@ public class MedicoController implements Initializable {
 
     @FXML
     private void btnGravar_Click(){
-        try{Medico medico = new Medico(txtCpf.getText(), txtNome.getText(), txtCrm.getText(), CboEspecialidade.getSelectionModel().getSelectedItem());
+        try{
+            if(txtNome.getText().length()<1){
+                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                return;
+            }
+            if(txtCrm.getText().length()<1){
+                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                return;
+            }
+            Medico medico = new Medico(txtCpf.getText(), txtNome.getText(), txtCrm.getText(), CboEspecialidade.getSelectionModel().getSelectedItem());
         if(!medicoDao.gravar(medico)){
             Alerta.exibir("Não foi possível gravar o médico");
             return;
         }
-        txtId.setText(String.valueOf(medico.getId()+1L));
         btnLimpar_Click();
+        txtId.setText(String.valueOf(medico.getId()+1L));
         exibirEspecialidades();
         exibirMedicos();
         }catch(Exception e){

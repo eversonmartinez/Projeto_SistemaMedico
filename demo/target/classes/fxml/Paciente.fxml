@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.controller.MedicoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.controller.PacienteController">
    <children>
-      <ListView fx:id="listaMedico" layoutX="14.0" layoutY="14.0" onKeyPressed="#listaMedico_keyPressed" onMouseClicked="#listaMedico_mouseClicked" prefHeight="326.0" prefWidth="219.0" />
+      <ListView fx:id="listaPaciente" layoutX="14.0" layoutY="14.0" onKeyPressed="#listaPaciente_keyPressed" onMouseClicked="#listaPaciente_mouseClicked" prefHeight="326.0" prefWidth="219.0" />
       <GridPane layoutX="262.0" layoutY="87.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -34,11 +34,9 @@
             <TextField fx:id="txtNome" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
             <Label text="CPF" GridPane.rowIndex="2" />
             <TextField fx:id="txtCpf" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="CRM" GridPane.rowIndex="3" />
-            <TextField fx:id="txtCrm" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-            <Label text="Especialidade" GridPane.rowIndex="4" />         
-            <ComboBox fx:id="CboEspecialidade" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-            <Button fx:id="Salvar" mnemonicParsing="false" onAction="#btnGravar_Click" text="Gravar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />           
+            <Label text="Plano de Saúde" GridPane.rowIndex="4" />   
+            <ComboBox fx:id="cboPlanoSaude" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+            <Button fx:id="Salvar" mnemonicParsing="false" onAction="#btnGravar_Click" text="Gravar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />            
          </children>
       </GridPane>
       <Button fx:id="btnLimpar" layoutX="25.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnLimpar_Click" text="Limpar campos" />

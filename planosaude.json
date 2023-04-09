@@ -7,6 +7,10 @@
   "nome" : "Krakatoa",
   "ativo" : false
 }, {
+  "id" : 4,
+  "nome" : "Cartão de Todes",
+  "ativo" : true
+}, {
   "id" : 3,
   "nome" : "Sao Lucas",
   "ativo" : true

@@ -5,6 +5,6 @@
  <ul>
  <li>Possibilitar a reativação de elementos desativados no json</li>
  <li>Adicionar um ícone para o programa</li>
- <li>Verificar bug que permite cadastras campos em branco</li>
  <li>Adicionar número do plano de saúde</li>
+<li>Permitir adicionar mais de uma especialidade</li>
  </ul>
