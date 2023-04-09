@@ -117,10 +117,12 @@ public class PacienteController implements Initializable {
 
     private void exibirDados(){
         Paciente pacienteSelecionado = listaPaciente.getSelectionModel().getSelectedItem();
-        txtId.setText(pacienteSelecionado.getId().toString());
-        txtNome.setText(pacienteSelecionado.getNome());
-        txtCpf.setText(pacienteSelecionado.getCpf());
-        cboPlanoSaude.getSelectionModel().select(pacienteSelecionado.getPlanoSaudes().get(0));
+        if (pacienteSelecionado!=null){
+            txtId.setText(pacienteSelecionado.getId().toString());
+            txtNome.setText(pacienteSelecionado.getNome());
+            txtCpf.setText(pacienteSelecionado.getCpf());
+            cboPlanoSaude.getSelectionModel().select(pacienteSelecionado.getPlanoSaudes().get(0));
+        }
     }
 
     

@@ -7,28 +7,8 @@
   "titulo" : "Otorrinolaringologista",
   "ativo" : true
 }, {
-  "id" : 2,
-  "titulo" : "Ortopedista",
-  "ativo" : true
-}, {
   "id" : 5,
   "titulo" : "Ginecologista",
-  "ativo" : true
-}, {
-  "id" : 6,
-  "titulo" : "Pediatra",
-  "ativo" : true
-}, {
-  "id" : 1,
-  "titulo" : "Cardiologista",
-  "ativo" : true
-}, {
-  "id" : 9,
-  "titulo" : "Cheguevara",
-  "ativo" : false
-}, {
-  "id" : 8,
-  "titulo" : "Cirurgião",
   "ativo" : true
 }, {
   "id" : 3,
@@ -37,5 +17,37 @@
 }, {
   "id" : 10,
   "titulo" : "Medigata",
+  "ativo" : true
+}, {
+  "id" : 17,
+  "titulo" : "Embalador",
+  "ativo" : true
+}, {
+  "id" : 2,
+  "titulo" : "Ortopedista",
+  "ativo" : true
+}, {
+  "id" : 6,
+  "titulo" : "Pediatra",
+  "ativo" : true
+}, {
+  "id" : 16,
+  "titulo" : "Soldador",
+  "ativo" : true
+}, {
+  "id" : 1,
+  "titulo" : "Cardiologista",
+  "ativo" : true
+}, {
+  "id" : 14,
+  "titulo" : "Ferreiro",
+  "ativo" : true
+}, {
+  "id" : 9,
+  "titulo" : "Cheguevara",
+  "ativo" : false
+}, {
+  "id" : 8,
+  "titulo" : "Cirurgião",
   "ativo" : true
 } ]

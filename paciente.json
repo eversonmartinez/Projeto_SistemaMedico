@@ -28,4 +28,14 @@
     "nome" : "Cartão de Todes",
     "ativo" : true
   } ]
+}, {
+  "nome" : "Kanye West",
+  "cpf" : "0276713261",
+  "id" : 5,
+  "ativo" : true,
+  "planoSaudes" : [ {
+    "id" : 4,
+    "nome" : "Cartão de Todes",
+    "ativo" : true
+  } ]
 } ]

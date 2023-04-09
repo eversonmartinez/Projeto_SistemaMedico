@@ -15,7 +15,7 @@
   "crm" : "teste",
   "especialidades" : [ null ],
   "id" : 14,
-  "ativo" : true
+  "ativo" : false
 }, {
   "nome" : "lais",
   "cpf" : "22797",
@@ -50,6 +50,39 @@
   "id" : 3,
   "ativo" : true
 }, {
+  "nome" : "teste",
+  "cpf" : "23231",
+  "crm" : "232343",
+  "especialidades" : [ {
+    "id" : 11,
+    "titulo" : "teste",
+    "ativo" : true
+  } ],
+  "id" : 17,
+  "ativo" : false
+}, {
+  "nome" : "aaa",
+  "cpf" : "2323123423",
+  "crm" : "232343",
+  "especialidades" : [ {
+    "id" : 11,
+    "titulo" : "teste",
+    "ativo" : true
+  } ],
+  "id" : 20,
+  "ativo" : false
+}, {
+  "nome" : "Toby Maguire",
+  "cpf" : "829738837",
+  "crm" : "376287",
+  "especialidades" : [ {
+    "id" : 4,
+    "titulo" : "Otorrinolaringologista",
+    "ativo" : true
+  } ],
+  "id" : 16,
+  "ativo" : true
+}, {
   "nome" : "Carlos Jobim",
   "cpf" : "13454513",
   "crm" : "1231354",
@@ -77,7 +110,7 @@
   "crm" : "",
   "especialidades" : [ null ],
   "id" : 5,
-  "ativo" : true
+  "ativo" : false
 }, {
   "nome" : "",
   "cpf" : "teste",
@@ -88,5 +121,5 @@
     "ativo" : true
   } ],
   "id" : 12,
-  "ativo" : true
+  "ativo" : false
 } ]
