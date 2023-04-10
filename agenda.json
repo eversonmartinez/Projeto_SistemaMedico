@@ -1,0 +1,161 @@
+[ {
+  "id" : 2,
+  "paciente" : {
+    "nome" : "Kelly Key",
+    "cpf" : "9874654132",
+    "id" : 2,
+    "ativo" : true,
+    "planoSaudes" : [ {
+      "id" : 3,
+      "nome" : "Sao Lucas",
+      "ativo" : true
+    } ]
+  },
+  "medico" : {
+    "nome" : "Dra Lorrainy Oliveira",
+    "cpf" : "19231546",
+    "crm" : "RJ:123456",
+    "especialidades" : [ {
+      "id" : 10,
+      "titulo" : "Medigata",
+      "ativo" : true
+    } ],
+    "id" : 7,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 4,
+    "titulo" : "Otorrinolaringologista",
+    "ativo" : true
+  },
+  "horario" : "2020-12-10T10:00:00",
+  "ativo" : true
+}, {
+  "id" : 4,
+  "paciente" : {
+    "nome" : "Silvio Santos",
+    "cpf" : "3153486",
+    "id" : 6,
+    "ativo" : true,
+    "planoSaudes" : [ {
+      "id" : 1,
+      "nome" : "Unimed",
+      "ativo" : true
+    } ]
+  },
+  "medico" : {
+    "nome" : "Toby Maguire",
+    "cpf" : "829738837",
+    "crm" : "376287",
+    "especialidades" : [ {
+      "id" : 4,
+      "titulo" : "Otorrinolaringologista",
+      "ativo" : true
+    } ],
+    "id" : 16,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 6,
+    "titulo" : "Pediatra",
+    "ativo" : true
+  },
+  "horario" : "2020-12-10T10:57:00",
+  "ativo" : true
+}, {
+  "id" : 5,
+  "paciente" : {
+    "nome" : "Silvio Santos",
+    "cpf" : "3153486",
+    "id" : 6,
+    "ativo" : true,
+    "planoSaudes" : [ {
+      "id" : 1,
+      "nome" : "Unimed",
+      "ativo" : true
+    } ]
+  },
+  "medico" : {
+    "nome" : "Carlos Jobim",
+    "cpf" : "13454513",
+    "crm" : "1231354",
+    "especialidades" : [ {
+      "id" : 8,
+      "titulo" : "Cirurgião",
+      "ativo" : true
+    } ],
+    "id" : 6,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 2,
+    "titulo" : "Ortopedista",
+    "ativo" : true
+  },
+  "horario" : "2023-04-10T17:55:00",
+  "ativo" : true
+}, {
+  "id" : 1,
+  "paciente" : {
+    "nome" : "Kelly Key",
+    "cpf" : "9874654132",
+    "id" : 2,
+    "ativo" : true,
+    "planoSaudes" : [ {
+      "id" : 3,
+      "nome" : "Sao Lucas",
+      "ativo" : true
+    } ]
+  },
+  "medico" : {
+    "nome" : "Dra Lorrainy Oliveira",
+    "cpf" : "19231546",
+    "crm" : "RJ:123456",
+    "especialidades" : [ {
+      "id" : 10,
+      "titulo" : "Medigata",
+      "ativo" : true
+    } ],
+    "id" : 7,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 5,
+    "titulo" : "Ginecologista",
+    "ativo" : true
+  },
+  "horario" : "2012-12-10T10:57:00",
+  "ativo" : true
+}, {
+  "id" : 3,
+  "paciente" : {
+    "nome" : "Kanye West",
+    "cpf" : "0276713261",
+    "id" : 5,
+    "ativo" : true,
+    "planoSaudes" : [ {
+      "id" : 4,
+      "nome" : "Cartão de Todes",
+      "ativo" : true
+    } ]
+  },
+  "medico" : {
+    "nome" : "Dra Lorrainy Oliveira",
+    "cpf" : "19231546",
+    "crm" : "RJ:123456",
+    "especialidades" : [ {
+      "id" : 10,
+      "titulo" : "Medigata",
+      "ativo" : true
+    } ],
+    "id" : 7,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 11,
+    "titulo" : "teste",
+    "ativo" : true
+  },
+  "horario" : "2020-02-10T10:21:00",
+  "ativo" : true
+} ]

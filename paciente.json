@@ -38,4 +38,14 @@
     "nome" : "Cartão de Todes",
     "ativo" : true
   } ]
+}, {
+  "nome" : "Silvio Santos",
+  "cpf" : "3153486",
+  "id" : 6,
+  "ativo" : true,
+  "planoSaudes" : [ {
+    "id" : 1,
+    "nome" : "Unimed",
+    "ativo" : true
+  } ]
 } ]

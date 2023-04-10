@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Paciente extends Pessoa{
-    private String crm; //crm será um atributo obrigatório (um médico pode ter mais de um crm?)
     private List<PlanoSaude> planosSaude = new ArrayList<PlanoSaude>(); //lista pro caso de mais de uma PlanoSaude
     private Long id;
     private Boolean ativo;
@@ -66,7 +65,7 @@ public class Paciente extends Pessoa{
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((crm == null) ? 0 : crm.hashCode());
+        result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
         return result;
     }
 
