@@ -77,11 +77,11 @@ public class MedicoController implements Initializable {
     private void btnGravar_Click(){
         try{
             if(txtNome.getText().length()<1){
-                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                Alerta.exibir("Campo \"Nome\" não pode ser vazio!");
                 return;
             }
             if(txtCrm.getText().length()<1){
-                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                Alerta.exibir("Campo \"CRM\" não pode ser vazio!");
                 return;
             }
             Medico medico = new Medico(txtCpf.getText(), txtNome.getText(), txtCrm.getText(), CboEspecialidade.getSelectionModel().getSelectedItem());

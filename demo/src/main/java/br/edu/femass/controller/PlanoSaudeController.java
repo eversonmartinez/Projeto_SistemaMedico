@@ -61,7 +61,7 @@ public class PlanoSaudeController implements Initializable{
     private void btnGravar_Click(){
         try{
             if(txtNome.getText().length()<1){
-                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                Alerta.exibir("Campo \"Nome\" não pode ser vazio!");
                 return;
             }
             PlanoSaude planoSaude = new PlanoSaude(txtNome.getText());

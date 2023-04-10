@@ -70,7 +70,7 @@ public class PacienteController implements Initializable {
     private void btnGravar_Click(){
         try{
             if(txtNome.getText().length()<1){
-                Alerta.exibir("Campo \"Título\" não pode ser vazio!");
+                Alerta.exibir("Campo \"Nome\" não pode ser vazio!");
                 return;
             }
             Paciente pacienteSelecionado = new Paciente(txtCpf.getText(), txtNome.getText(), cboPlanoSaude.getSelectionModel().getSelectedItem());

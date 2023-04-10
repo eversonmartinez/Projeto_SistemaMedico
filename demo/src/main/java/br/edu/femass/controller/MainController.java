@@ -70,8 +70,17 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void handleBtnConsultaAction(ActionEvent event) {
-        System.out.println("You clicked me!");
+    private void handleBtnConsultaAction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Agenda.fxml"));
+        
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+        scene.getRoot().setStyle("-fx-font-family: 'serif'");
+
+        Stage stage = new Stage();
+        stage.setTitle("Agenda");
+        stage.setScene(scene);
+        stage.show();
     }
     
     @Override
