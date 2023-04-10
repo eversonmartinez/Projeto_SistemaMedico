@@ -12,14 +12,20 @@ public class Agenda {
     private LocalDateTime horario;
     private Boolean ativo;
 
-    private static Long ultimoId;
+    private static Long ultimoId=0L;
     
+    public Agenda(){
+
+    }
+
     public Agenda(Paciente paciente, Medico medico, Especialidade especialidade, LocalDateTime horario){
         this.paciente=paciente;
         this.medico=medico;
         this.especialidade = especialidade;
         this.horario=horario;
         this.ativo=true;
+        this.id=ultimoId+1L;
+        ultimoId++;
     }
     
     public Long getId() {
@@ -101,7 +107,7 @@ public class Agenda {
 
     @Override
     public String toString() {
-        return "Consulta [medico=" + medico + ", horario=" + horario + "]";
+        return "Consulta [medico=" + medico + ", especialidade= " + especialidade + ", paciente=" + paciente + "]";
     }
 
     

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="br.edu.femass.controller.AgendaController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.controller.AgendaController">
   <tabs>
     <Tab text="Cadastro">
       <content>
@@ -39,18 +39,18 @@
                      <children>
                         <Label text="Id:" />
                         <TextField fx:id="txtId" editable="false" GridPane.columnIndex="1" />
-                        <Label text="Data" GridPane.rowIndex="4" />
-                        <TextField fx:id="txtData" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="Paciente" GridPane.rowIndex="3" />
-                        <ComboBox fx:id="CboPaciente" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                        <Button fx:id="Salvar" mnemonicParsing="false" onAction="#btnGravar_Click" text="Gravar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
-                        <Label text="Hora" GridPane.rowIndex="5" />
-                        <TextField fx:id="txtHora" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label text="Médico" GridPane.rowIndex="1" />
                         <ComboBox fx:id="CboMedico" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-                        <Hyperlink fx:id="linkPaciente" onAction="#handleBtnPacienteAction" text="Novo" underline="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                         <Label text="Especialidade" GridPane.rowIndex="2" />
                         <ComboBox fx:id="CboEspecialidade" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <Label text="Paciente" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="CboPaciente" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                        <Hyperlink fx:id="linkPaciente" onAction="#handleBtnPacienteAction" text="Novo" underline="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                        <Label text="Data" GridPane.rowIndex="4" />
+                        <TextField fx:id="txtData" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Hora" GridPane.rowIndex="5" />
+                        <TextField fx:id="txtHora" promptText="hh:mm" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button fx:id="Salvar" mnemonicParsing="false" onAction="#btnGravar_Click" text="Gravar" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />                      
                      </children>
                   </GridPane>
                   <Button fx:id="btnLimpar" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnLimpar_Click" text="Limpar campos" />
@@ -92,7 +92,7 @@
                         <TextField fx:id="txtInfoMedico" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                         <TextField fx:id="txtInfoPaciente" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
                         <Label text="Especialidade" GridPane.rowIndex="3" />
-                        <TextField fx:id="txtInfoEspecialidade" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="txtInfoEspecialidade" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                         <TextField fx:id="txtInfoPlanoSaude" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
                         <Label text="Plano de Saúde" GridPane.rowIndex="5" />
                      </children>
@@ -113,12 +113,13 @@
                         <Label text="Filtros para pesquisa:" GridPane.columnSpan="2" />
                         <Label text="Data:" GridPane.rowIndex="1" />
                         <Label text="Médico:" GridPane.rowIndex="2" />
-                        <TextField fx:id="txtFiltroData" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="txtFiltroData" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <ComboBox fx:id="cboFiltroMedico" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                         <Button fx:id="Pesquisar" mnemonicParsing="false" onAction="#btnPesquisar_Click" text="Pesquisar" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Button fx:id="btnLimpar2" mnemonicParsing="false" onAction="#btnLimpar_Click" text="Limpar campos" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
-                  <TextField fx:id="txtRelatorio" editable="false" layoutX="367.0" layoutY="14.0" />
+                  <TextField fx:id="txtRelatorio" editable="false" layoutX="367.0" layoutY="14.0" prefHeight="26.0" prefWidth="175.0" />
                </children></AnchorPane>
       </content>
     </Tab>

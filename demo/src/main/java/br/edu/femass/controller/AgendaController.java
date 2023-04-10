@@ -2,12 +2,13 @@ package br.edu.femass.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -33,6 +34,10 @@ public class AgendaController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        exibirAgendas();
+        exibirMedicos();
+        exibirEspecialidades();
+        exibirPacientes();
     }
     
     @FXML
@@ -70,6 +75,16 @@ public class AgendaController implements Initializable {
         CboMedico.getSelectionModel().select(null);
         CboEspecialidade.getSelectionModel().select(null);
         CboPaciente.getSelectionModel().select(null);
+        
+        txtFiltroData.setText("");
+        cboFiltroMedico.getSelectionModel().select(null);
+        txtInfoId.setText("");
+        txtInfoData.setText("");
+        txtInfoHora.setText("");
+        txtInfoMedico.setText("");
+        txtInfoPaciente.setText("");
+        txtInfoPlanoSaude.setText("");
+        txtInfoEspecialidade.setText("");   
     }
 
     @FXML
@@ -87,44 +102,63 @@ public class AgendaController implements Initializable {
             }
         }
         exibirAgendas();          
-        //exibirEspecialidades();criar esses métodos
-        //exibirMedicos();
-        //exibirPacientes();
+        exibirMedicos();
+        exibirEspecialidades();
+        exibirPacientes();
     }
-
+    
     @FXML
     private void btnGravar_Click(){
         try{
             if(txtData.getText().length()<1){
-                Alerta.exibir("Campo \"Data\" não pode ser vazio!");
+                Alerta.exibir("Campo \"DATA\" não pode ser vazio!");
+                return;
+            }
+            if((txtData.getText().charAt(2)!='/') || (txtData.getText().charAt(5)!='/') || txtData.getText().length()>11 || txtData.getText().length()<10){
+                Alerta.exibir("Campo \"DATA\" está no formato errado!");
                 return;
             }
             if(txtHora.getText().length()<1){
-                Alerta.exibir("Campo \"Hora\" não pode ser vazio!");
+                Alerta.exibir("Campo \"HORA\" não pode ser vazio!");
                 return;
             }
-            //verificar campos de combobox
+            if((txtHora.getText().charAt(2)!=':') || txtHora.getText().length()>6 || txtHora.getText().length()<5){
+                Alerta.exibir("Campo \"HORA\" está no formato errado!");
+                return;
+            }
+            DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyyHH:mm");
             Agenda agenda = new Agenda(CboPaciente.getSelectionModel().getSelectedItem(), CboMedico.getSelectionModel().getSelectedItem(), CboEspecialidade.getSelectionModel()
-            .getSelectedItem(), LocalDateTime.now());
-            //criar conversão dos campos strings para o tipo data usando formatter
+            .getSelectedItem(), LocalDateTime.parse(txtData.getText() + txtHora.getText(), fmt));
         if(!agendaDao.gravar(agenda)){
             Alerta.exibir("Não foi possível gravar a agenda");
             return;
         }
         btnLimpar_Click();
         txtId.setText(String.valueOf(agenda.getId()+1L));
+        exibirAgendas();          
+        exibirMedicos();
         exibirEspecialidades();
-        //exibirMedicos();
-        //exibirAgendas();
-        //exibirPacientes();
+        exibirPacientes();
         }catch(Exception e){
             Alerta.exibir(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     private void exibirAgendas(){
         try{ObservableList<Agenda> data = FXCollections.observableArrayList(agendaDao.buscarAtivos());
             listaAgenda.setItems(data);
+            listaRelatorio.setItems(data);
+            txtRelatorio.setText("Consultas de todas as datas");
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    private void exibirMedicos(){
+        try{ObservableList<Medico> data = FXCollections.observableArrayList(medicoDao.buscarAtivos());
+            CboMedico.setItems(data);
+            cboFiltroMedico.setItems(data);
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -133,6 +167,14 @@ public class AgendaController implements Initializable {
     private void exibirEspecialidades(){
         try{ObservableList<Especialidade> data = FXCollections.observableArrayList(especialidadeDao.buscarAtivos());
             CboEspecialidade.setItems(data);
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    private void exibirPacientes(){
+        try{ObservableList<Paciente> data = FXCollections.observableArrayList(pacienteDao.buscarAtivos());
+            CboPaciente.setItems(data);
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -149,11 +191,14 @@ public class AgendaController implements Initializable {
     }
 
     private void exibirDados(){
+       
         Agenda agenda = listaAgenda.getSelectionModel().getSelectedItem();
         if(agenda!=null){
             txtId.setText(agenda.getId().toString());
-            //txtData.setText(agenda.getData());    criar conversores de data para string na tela
-            //txtHora.setText(agenda.getData(txtCrm.setText(medico.getCrm());
+            DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("HH:mm");
+            txtData.setText(agenda.getHorario().format(fmt2));
+            txtHora.setText(agenda.getHorario().format(fmt3));
             CboMedico.getSelectionModel().select(agenda.getMedico());
             CboEspecialidade.getSelectionModel().select(agenda.getEspecialidade());
             CboPaciente.getSelectionModel().select(agenda.getPaciente());
@@ -187,7 +232,13 @@ public class AgendaController implements Initializable {
     private TextField txtInfoEspecialidade;
 
     @FXML
+    private TextField txtInfoMedico;
+    
+    @FXML
     private TextField txtInfoPaciente;
+
+    @FXML
+    private TextField txtInfoPlanoSaude;
 
     @FXML
     private TextField txtInfoData;
@@ -203,18 +254,57 @@ public class AgendaController implements Initializable {
 
     @FXML
     private void btnPesquisar_Click(){
-        exibirDados();
+        try{
+            if(txtFiltroData.getText().length()==10){
+                    ObservableList<Agenda> data = FXCollections.observableArrayList(agendaDao.buscarData(LocalDate.parse(txtFiltroData.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"))));  
+                    listaRelatorio.setItems(data);
+                    txtRelatorio.setText("Consultas de " + txtFiltroData.getText());
+                    if(cboFiltroMedico.getSelectionModel().getSelectedItem()!=null){
+                        data=FXCollections.observableArrayList(agendaDao.buscarMedico(listaRelatorio.getItems(), cboFiltroMedico.getSelectionModel().getSelectedItem()));
+                        listaRelatorio.setItems(data);
+                   }
+            }
+            else if(cboFiltroMedico.getSelectionModel().getSelectedItem()!=null){
+                exibirAgendas();
+                ObservableList<Agenda> data=FXCollections.observableArrayList(agendaDao.buscarMedico(listaRelatorio.getItems(), cboFiltroMedico.getSelectionModel().getSelectedItem()));
+                listaRelatorio.setItems(data);
+                txtRelatorio.setText("Consultas para " + cboFiltroMedico.getSelectionModel().getSelectedItem().getNome());
+           }
+
+           else{
+                exibirAgendas();
+           }
+        }
+
+
+        catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     @FXML
     private void listaRelatorio_keyPressed(KeyEvent event){
-        exibirDados();
+        exibirDadosRelatorio();
     }
 
     @FXML
     private void listaRelatorio_mouseClicked(MouseEvent event){
-        exibirDados();
+        exibirDadosRelatorio();
     }
 
+    private void exibirDadosRelatorio(){
+        Agenda agenda = listaRelatorio.getSelectionModel().getSelectedItem();
+        if(agenda!=null){
+            txtInfoId.setText(agenda.getId().toString());
+            DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("HH:mm");
+            txtInfoData.setText(agenda.getHorario().format(fmt2));
+            txtInfoHora.setText(agenda.getHorario().format(fmt3));
+            txtInfoMedico.setText(agenda.getMedico().getNome());
+            txtInfoPaciente.setText(agenda.getPaciente().getNome());
+            txtInfoPlanoSaude.setText(agenda.getPaciente().getPlanoSaudes().get(0).getnome());
+            txtInfoEspecialidade.setText(agenda.getEspecialidade().getTitulo());
+        }
+    }
    
 }
