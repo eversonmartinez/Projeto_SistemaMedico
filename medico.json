@@ -1,25 +1,40 @@
 [ {
-  "nome" : "123456789",
-  "cpf" : "Jose Bezerra",
-  "crm" : "RJ:2010",
+  "nome" : "Luis Claudio",
+  "cpf" : "1534879",
+  "crm" : "1354846",
+  "especialidades" : [ {
+    "id" : 10,
+    "titulo" : "Medigata",
+    "ativo" : true
+  } ],
+  "id" : 2,
+  "ativo" : true
+}, {
+  "nome" : "Leo",
+  "cpf" : "15468765",
+  "crm" : "1354879",
+  "especialidades" : [ {
+    "id" : 5,
+    "titulo" : "Ginecologista",
+    "ativo" : true
+  } ],
+  "id" : 3,
+  "ativo" : true
+}, {
+  "nome" : "Antonio Carlos",
+  "cpf" : "1354686",
+  "crm" : "786548445",
   "especialidades" : [ {
     "id" : 4,
     "titulo" : "Otorrinolaringologista",
     "ativo" : true
   } ],
   "id" : 1,
-  "ativo" : false
+  "ativo" : true
 }, {
-  "nome" : "",
-  "cpf" : "",
-  "crm" : "teste",
-  "especialidades" : [ null ],
-  "id" : 14,
-  "ativo" : false
-}, {
-  "nome" : "lais",
-  "cpf" : "22797",
-  "crm" : "2757",
+  "nome" : "leleo",
+  "cpf" : "135487",
+  "crm" : "123456",
   "especialidades" : [ {
     "id" : 5,
     "titulo" : "Ginecologista",
@@ -27,99 +42,4 @@
   } ],
   "id" : 4,
   "ativo" : true
-}, {
-  "nome" : "Dra Lorrainy Oliveira",
-  "cpf" : "19231546",
-  "crm" : "RJ:123456",
-  "especialidades" : [ {
-    "id" : 10,
-    "titulo" : "Medigata",
-    "ativo" : true
-  } ],
-  "id" : 7,
-  "ativo" : true
-}, {
-  "nome" : "Antonio Carlos",
-  "cpf" : "789465465",
-  "crm" : "353487",
-  "especialidades" : [ {
-    "id" : 6,
-    "titulo" : "Pediatra",
-    "ativo" : true
-  } ],
-  "id" : 3,
-  "ativo" : true
-}, {
-  "nome" : "teste",
-  "cpf" : "23231",
-  "crm" : "232343",
-  "especialidades" : [ {
-    "id" : 11,
-    "titulo" : "teste",
-    "ativo" : true
-  } ],
-  "id" : 17,
-  "ativo" : false
-}, {
-  "nome" : "aaa",
-  "cpf" : "2323123423",
-  "crm" : "232343",
-  "especialidades" : [ {
-    "id" : 11,
-    "titulo" : "teste",
-    "ativo" : true
-  } ],
-  "id" : 20,
-  "ativo" : false
-}, {
-  "nome" : "Toby Maguire",
-  "cpf" : "829738837",
-  "crm" : "376287",
-  "especialidades" : [ {
-    "id" : 4,
-    "titulo" : "Otorrinolaringologista",
-    "ativo" : true
-  } ],
-  "id" : 16,
-  "ativo" : true
-}, {
-  "nome" : "Carlos Jobim",
-  "cpf" : "13454513",
-  "crm" : "1231354",
-  "especialidades" : [ {
-    "id" : 8,
-    "titulo" : "Cirurgião",
-    "ativo" : true
-  } ],
-  "id" : 6,
-  "ativo" : true
-}, {
-  "nome" : "987654321",
-  "cpf" : "Carlos Maia",
-  "crm" : "465465465",
-  "especialidades" : [ {
-    "id" : 2,
-    "titulo" : "Ortopedista",
-    "ativo" : true
-  } ],
-  "id" : 2,
-  "ativo" : false
-}, {
-  "nome" : "",
-  "cpf" : "",
-  "crm" : "",
-  "especialidades" : [ null ],
-  "id" : 5,
-  "ativo" : false
-}, {
-  "nome" : "",
-  "cpf" : "teste",
-  "crm" : "",
-  "especialidades" : [ {
-    "id" : 11,
-    "titulo" : "teste",
-    "ativo" : true
-  } ],
-  "id" : 12,
-  "ativo" : false
 } ]

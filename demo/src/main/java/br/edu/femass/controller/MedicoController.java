@@ -1,5 +1,6 @@
 package br.edu.femass.controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,12 +12,16 @@ import br.edu.femass.model.Medico;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class MedicoController implements Initializable {
 
@@ -47,12 +52,13 @@ public class MedicoController implements Initializable {
     MedicoDao medicoDao = new MedicoDao();
     
     @FXML
-    private void btnLimpar_Click(){
+    private void btnNovo_Click(){
         txtId.setText("");
         txtNome.setText("");
         txtCpf.setText("");
         txtCrm.setText("");
         CboEspecialidade.getSelectionModel().select(null);
+        listaMedico.getSelectionModel().select(null);
     }
 
     @FXML
@@ -74,28 +80,66 @@ public class MedicoController implements Initializable {
     }
 
     @FXML
+    private void btnEspecialidade_Click() throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/MedicoEspecialidade.fxml"));
+        
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Styles.css");
+        scene.getRoot().setStyle("-fx-font-family: 'serif'");
+
+        Stage stage = new Stage();
+        stage.setTitle("Cadastro de Pacientes");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     private void btnGravar_Click(){
         try{
-            if(txtNome.getText().length()<1){
-                Alerta.exibir("Campo \"Nome\" não pode ser vazio!");
+            if(listaMedico.getSelectionModel().getSelectedItem()==null){    //inserção de um novo objeto
+                    
+                if(txtNome.getText().length()<1){
+                    Alerta.exibir("Campo \"Nome\" não pode ser vazio!");
+                    return;
+                }
+                if(txtCrm.getText().length()<1){
+                    Alerta.exibir("Campo \"CRM\" não pode ser vazio!");
+                    return;
+                }
+                
+                Medico medico = new Medico(txtCpf.getText(), txtNome.getText(), txtCrm.getText(), CboEspecialidade.getSelectionModel().getSelectedItem());
+            if(!medicoDao.gravar(medico)){
+                Alerta.exibir("Não foi possível gravar o médico");
                 return;
             }
-            if(txtCrm.getText().length()<1){
-                Alerta.exibir("Campo \"CRM\" não pode ser vazio!");
-                return;
+                limparCampos();
+                txtId.setText(String.valueOf(medico.getId()+1L));
+                exibirEspecialidades();
+                exibirMedicos();
+                Alerta.exibirInformacao("Novo Objeto Salvo com Sucesso!");
             }
-            Medico medico = new Medico(txtCpf.getText(), txtNome.getText(), txtCrm.getText(), CboEspecialidade.getSelectionModel().getSelectedItem());
-        if(!medicoDao.gravar(medico)){
-            Alerta.exibir("Não foi possível gravar o médico");
-            return;
-        }
-        btnLimpar_Click();
-        txtId.setText(String.valueOf(medico.getId()+1L));
-        exibirEspecialidades();
-        exibirMedicos();
+
+            else{   //edição de um objeto já existente
+                Medico medico = listaMedico.getSelectionModel().getSelectedItem();
+                medico.setCrm(txtCrm.getText());
+                Alerta.exibirAlerta("Edição apenas para os campos CRM e Especialidades");
+                medicoDao.editar(medico);
+                btnNovo_Click();
+                exibirMedicos();
+                exibirEspecialidades(); 
+                Alerta.exibirInformacao("Objeto Editado com Sucesso!");
+            }
         }catch(Exception e){
             Alerta.exibir(e.getMessage());
         }
+    }
+
+    private void limparCampos(){
+        txtId.setText("");
+        txtNome.setText("");
+        txtCpf.setText("");
+        txtCrm.setText("");
+        CboEspecialidade.getSelectionModel().select(null);
     }
 
     private void exibirMedicos(){
