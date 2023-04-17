@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,7 +38,7 @@ public class AgendaController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         exibirAgendas();
         exibirMedicos();
-        exibirEspecialidades();
+        CboMedico.setOnAction(this::exibirEspecialidades);
         exibirPacientes();
     }
     
@@ -104,7 +105,7 @@ public class AgendaController implements Initializable {
         }
         exibirAgendas();          
         exibirMedicos();
-        exibirEspecialidades();
+        exibirEspecialidades(new ActionEvent());
         exibirPacientes();
     }
     
@@ -138,7 +139,7 @@ public class AgendaController implements Initializable {
         txtId.setText(String.valueOf(agenda.getId()+1L));
         exibirAgendas();          
         exibirMedicos();
-        exibirEspecialidades();
+        exibirEspecialidades(new ActionEvent());
         exibirPacientes();
         }catch(Exception e){
             Alerta.exibir(e.getMessage());
@@ -165,9 +166,13 @@ public class AgendaController implements Initializable {
         }
     }
 
-    private void exibirEspecialidades(){
-        try{ObservableList<Especialidade> data = FXCollections.observableArrayList(especialidadeDao.buscarAtivos());
-            CboEspecialidade.setItems(data);
+    private void exibirEspecialidades(ActionEvent event){
+        try{
+            Medico medico = CboMedico.getSelectionModel().getSelectedItem();
+            if(medico!=null){
+                ObservableList<Especialidade> data = FXCollections.observableArrayList(medico.getEspecialidades());
+                CboEspecialidade.setItems(data);
+            }
         }catch(Exception ex){
             ex.printStackTrace();
         }
