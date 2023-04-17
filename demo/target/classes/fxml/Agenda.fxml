@@ -40,11 +40,11 @@
                         <Label text="Id:" />
                         <TextField fx:id="txtId" editable="false" GridPane.columnIndex="1" />
                         <Label text="Médico" GridPane.rowIndex="1" />
-                        <ComboBox fx:id="CboMedico" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="CboMedico" prefHeight="26.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                         <Label text="Especialidade" GridPane.rowIndex="2" />
-                        <ComboBox fx:id="CboEspecialidade" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                        <ComboBox fx:id="CboEspecialidade" prefHeight="26.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                         <Label text="Paciente" GridPane.rowIndex="3" />
-                        <ComboBox fx:id="CboPaciente" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="CboPaciente" prefHeight="26.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                         <Hyperlink fx:id="linkPaciente" onAction="#handleBtnPacienteAction" text="Novo" underline="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                         <Label text="Data" GridPane.rowIndex="4" />
                         <TextField fx:id="txtData" promptText="dd/mm/aaaa" GridPane.columnIndex="1" GridPane.rowIndex="4" />

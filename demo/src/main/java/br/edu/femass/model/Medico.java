@@ -68,6 +68,18 @@ public class Medico extends Pessoa{
         this.especialidades=especialidades;
     }
 
+    public boolean possuiEspecialidade(Especialidade especialidadeNova){
+        boolean possui = false;
+        for(Especialidade especialidade : this.especialidades ){
+            if(especialidade.equals(especialidadeNova)){
+                possui=true;
+            }
+        }
+
+        return possui;
+        
+    }
+
     public static void atualizarUltimoId(Set<Medico> medicos){  
         for(Medico medico : medicos){
             if(medico.getId()>ultimoId)

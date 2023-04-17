@@ -87,13 +87,18 @@ public class PacienteController implements Initializable {
             }
             else{   //edição de um objeto já existente
                 Paciente paciente = listaPaciente.getSelectionModel().getSelectedItem();
-                paciente.setPlanoSaude(cboPlanoSaude.getSelectionModel().getSelectedItem());
-                Alerta.exibirAlerta("Edição apenas para os campos CRM e Especialidades");
-                pacienteDao.editar(paciente);
+                //paciente.setPlanoSaude(cboPlanoSaude.getSelectionModel().getSelectedItem());
+                Alerta.exibirAlerta("Edição apenas para o campo de Plano de Saúde");
+                PlanoSaude planoSaude = cboPlanoSaude.getSelectionModel().getSelectedItem();
+                if(!pacienteDao.editar(paciente, planoSaude)){
+                    Alerta.exibir("Alteração inválida");
+                    return;
+                }
+                    
                 btnNovo_Click();
                 exibirPacientes();
                 exibirPlanosSaude(); 
-                Alerta.exibirInformacao("Objeto Editado com Sucesso!");
+                Alerta.exibirInformacao("Paciente Editado com Sucesso!");
             }
         }catch(Exception e){
             Alerta.exibir(e.getMessage());

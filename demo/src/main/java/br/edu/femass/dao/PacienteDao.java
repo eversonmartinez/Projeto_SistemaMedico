@@ -12,6 +12,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 
 import br.edu.femass.model.Paciente;
+import br.edu.femass.model.PlanoSaude;
 
 public class PacienteDao extends Persist implements Dao<Paciente> {
 
@@ -42,11 +43,14 @@ public class PacienteDao extends Persist implements Dao<Paciente> {
     
     }
 
-    public boolean editar(Paciente objeto) throws StreamWriteException, DatabindException, IOException {
+    public boolean editar(Paciente objeto, PlanoSaude planoSaude) throws StreamWriteException, DatabindException, IOException {
         Set <Paciente> pacientes = buscar();
         for(Paciente paciente: pacientes){
             if(paciente.equals(objeto)){
-                paciente.setPlanoSaude(objeto.getPlanoSaude());
+                if(paciente.getPlanoSaude().equals(planoSaude)){
+                    return false;
+                }
+                paciente.setPlanoSaude(planoSaude);
             }
         }
 

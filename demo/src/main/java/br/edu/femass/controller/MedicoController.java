@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -89,6 +90,7 @@ public class MedicoController implements Initializable {
 
         Stage stage = new Stage();
         stage.setTitle("Cadastro de Pacientes");
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         stage.setScene(scene);
         stage.show();
 
@@ -127,7 +129,11 @@ public class MedicoController implements Initializable {
                 if(medico.getEspecialidades().get(0) != CboEspecialidade.getSelectionModel().getSelectedItem())
                     medico.adicionarEspecialidade(CboEspecialidade.getSelectionModel().getSelectedItem());
                 Alerta.exibirAlerta("Edição apenas para os campos CRM e Especialidades");
-                medicoDao.editar(medico);
+                if(!medicoDao.editar(medico, CboEspecialidade.getSelectionModel().getSelectedItem(), txtCrm.getText())){
+                    Alerta.exibir("Alteração Inválida");
+                    exibirMedicos();
+                    return;
+                }
                 btnNovo_Click();
                 exibirMedicos();
                 exibirEspecialidades(); 

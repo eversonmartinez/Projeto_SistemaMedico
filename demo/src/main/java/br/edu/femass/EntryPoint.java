@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -18,6 +19,7 @@ public class EntryPoint extends Application {
         scene.getRoot().setStyle("-fx-font-family: 'serif'");
 
         stage.setTitle("Sistema Médico");
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         stage.setScene(scene);
         stage.show();
     }
