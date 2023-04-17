@@ -13,5 +13,17 @@ public class Alerta {
         alerta.setTitle(mensagem);
         alerta.show();
     }
+
+    public static void exibirInformacao(String mensagem){
+        Alert alerta = new Alert(AlertType.INFORMATION);
+        alerta.setTitle(mensagem);
+        alerta.show();
+    }
+
+    public static void exibirAlerta(String mensagem){
+        Alert alerta = new Alert(AlertType.WARNING);
+        alerta.setTitle(mensagem);
+        alerta.show();
+    }
     
 }

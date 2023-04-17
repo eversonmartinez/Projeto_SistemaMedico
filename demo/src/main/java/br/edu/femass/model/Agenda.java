@@ -42,10 +42,6 @@ public class Agenda {
         return especialidade;
     }
 
-    public void setEspecialidade(Especialidade especialidade) {
-        this.especialidade = especialidade;
-    }
-
     public LocalDateTime getHorario() {
         return horario;
     }

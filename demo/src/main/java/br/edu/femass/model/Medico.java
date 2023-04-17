@@ -63,6 +63,10 @@ public class Medico extends Pessoa{
     public List<Especialidade> getEspecialidades(){
         return this.especialidades;
     }
+    
+    public void setEspecialidades(List<Especialidade> especialidades){
+        this.especialidades=especialidades;
+    }
 
     public static void atualizarUltimoId(Set<Medico> medicos){  
         for(Medico medico : medicos){
@@ -98,7 +102,11 @@ public class Medico extends Pessoa{
 
     @Override
     public String toString() {
-        return nome;
+        String retorno = "Dr(a): " + nome + ". ";
+        for(Especialidade especialidade : especialidades){
+            retorno = retorno + especialidade + ", ";
+        }
+        return retorno.substring(0, retorno.length()-2);
     }
     
 }

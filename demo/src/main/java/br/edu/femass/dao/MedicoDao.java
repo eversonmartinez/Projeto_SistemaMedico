@@ -43,6 +43,19 @@ public class MedicoDao extends Persist implements Dao<Medico> {
         return true;
     }
 
+    public boolean editar(Medico objeto) throws StreamWriteException, DatabindException, IOException {
+        Set <Medico> medicos = buscar();
+        for(Medico medico: medicos){
+            if(medico.equals(objeto)){
+                medico.setCrm(objeto.getCrm());
+                medico.setEspecialidades(objeto.getEspecialidades());
+            }
+        }
+
+        om.writerWithDefaultPrettyPrinter().writeValue(arquivo, medicos);
+        return true;
+    }
+
     @Override
     public Set<Medico> buscar() throws DatabindException, StreamReadException {
         try{

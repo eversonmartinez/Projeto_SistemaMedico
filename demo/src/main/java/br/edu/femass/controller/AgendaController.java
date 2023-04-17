@@ -302,7 +302,7 @@ public class AgendaController implements Initializable {
             txtInfoHora.setText(agenda.getHorario().format(fmt3));
             txtInfoMedico.setText(agenda.getMedico().getNome());
             txtInfoPaciente.setText(agenda.getPaciente().getNome());
-            txtInfoPlanoSaude.setText(agenda.getPaciente().getPlanoSaudes().get(0).getnome());
+            txtInfoPlanoSaude.setText(agenda.getPaciente().getPlanoSaude().getNome());
             txtInfoEspecialidade.setText(agenda.getEspecialidade().getTitulo());
         }
     }

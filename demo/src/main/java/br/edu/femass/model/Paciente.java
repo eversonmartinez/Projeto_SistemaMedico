@@ -1,11 +1,9 @@
 package br.edu.femass.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class Paciente extends Pessoa{
-    private List<PlanoSaude> planosSaude = new ArrayList<PlanoSaude>(); //lista pro caso de mais de uma PlanoSaude
+    private PlanoSaude planoSaude;//List<PlanoSaude> planosSaude = new ArrayList<PlanoSaude>(); //lista pro caso de mais de uma PlanoSaude
     private Long id;
     private Boolean ativo;
 
@@ -16,7 +14,8 @@ public class Paciente extends Pessoa{
 
     public Paciente(String cpf, String nome, PlanoSaude planoSaude) {
         super(nome, cpf);
-        planosSaude.add(planoSaude); 
+        this.planoSaude=planoSaude;
+        //planosSaude.add(planoSaude); 
         this.id=ultimoId+1L;
         this.ativo = true;
         ultimoId++;
@@ -42,7 +41,7 @@ public class Paciente extends Pessoa{
         this.ativo = ativo;
     }
 
-    public void adicionarPlanoSaude(PlanoSaude planoSaude){
+    /*public void adicionarPlanoSaude(PlanoSaude planoSaude){
         planosSaude.add(planoSaude);
     }
 
@@ -52,6 +51,14 @@ public class Paciente extends Pessoa{
 
     public List<PlanoSaude> getPlanoSaudes(){
         return this.planosSaude;
+    }*/
+
+    public PlanoSaude getPlanoSaude(){
+        return this.planoSaude;
+    }
+
+    public void setPlanoSaude(PlanoSaude planoSaude){
+        this.planoSaude = planoSaude;
     }
 
     public static void atualizarUltimoId(Set<Paciente> pacientes){  

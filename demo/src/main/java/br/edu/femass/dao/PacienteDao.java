@@ -42,6 +42,18 @@ public class PacienteDao extends Persist implements Dao<Paciente> {
     
     }
 
+    public boolean editar(Paciente objeto) throws StreamWriteException, DatabindException, IOException {
+        Set <Paciente> pacientes = buscar();
+        for(Paciente paciente: pacientes){
+            if(paciente.equals(objeto)){
+                paciente.setPlanoSaude(objeto.getPlanoSaude());
+            }
+        }
+
+        om.writerWithDefaultPrettyPrinter().writeValue(arquivo, pacientes);
+        return true;
+    }
+
     @Override
     public Set<Paciente> buscar() throws DatabindException, StreamReadException {
         try{
