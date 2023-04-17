@@ -5,5 +5,3 @@
  
  <p>Construído em cima do Java versão 17, o projeto faz uso das bibliotecas do JavaFX para criação das telas visuais, Jackson FasterXML para lidar com a persistência de arquivos JSON e JUnit para realizar alguns testes de funções.</p> 
  
- <p>O resultado final pode ser encontrado em formato de executável (JAR) <a href link="https://www.google.com">aqui</href>.</p>
- <p>https://drive.google.com/file/d/1TqouKQznZ_6WmvY7fMFuoIPFBWg-fyMb/view</p>
