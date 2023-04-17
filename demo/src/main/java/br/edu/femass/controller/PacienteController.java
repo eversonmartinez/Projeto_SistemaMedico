@@ -44,11 +44,12 @@ public class PacienteController implements Initializable {
     private PacienteDao pacienteDao = new PacienteDao();
 
     @FXML
-    private void btnLimpar_Click(){
+    private void btnNovo_Click(){
         txtId.setText("");
         txtNome.setText("");
         txtCpf.setText("");
         cboPlanoSaude.getSelectionModel().select(null);
+        listaPaciente.getSelectionModel().select(null);
     }
 
     @FXML
@@ -60,7 +61,7 @@ public class PacienteController implements Initializable {
                 return;
             }
             exibirPacientes();
-            btnLimpar_Click();
+            btnNovo_Click();
         }catch(Exception ex){
             ex.printStackTrace();
         }
@@ -69,20 +70,33 @@ public class PacienteController implements Initializable {
     @FXML
     private void btnGravar_Click(){
         try{
-            if(txtNome.getText().length()<1){
-                Alerta.exibir("Campo \"Nome\" não pode ser vazio!");
-                return;
+            if(listaPaciente.getSelectionModel().getSelectedItem()==null){    //inserção de um novo objeto
+                if(txtNome.getText().length()<1){
+                    Alerta.exibir("Campo \"Nome\" não pode ser vazio!");
+                    return;
+                }
+                Paciente pacienteSelecionado = new Paciente(txtCpf.getText(), txtNome.getText(), cboPlanoSaude.getSelectionModel().getSelectedItem());
+                if(!pacienteDao.gravar(pacienteSelecionado)){
+                    Alerta.exibir("Não foi possível gravar o paciente!");
+                    return;
+                }
+                exibirPacientes();
+                btnNovo_Click();
+                txtId.setText(String.valueOf(pacienteSelecionado.getId() + 1L));
+                Alerta.exibirInformacao("Novo Paciente Salvo com Sucesso!");
             }
-            Paciente pacienteSelecionado = new Paciente(txtCpf.getText(), txtNome.getText(), cboPlanoSaude.getSelectionModel().getSelectedItem());
-            if(!pacienteDao.gravar(pacienteSelecionado)){
-                Alerta.exibir("Não foi possível gravar o paciente!");
-                return;
+            else{   //edição de um objeto já existente
+                Paciente paciente = listaPaciente.getSelectionModel().getSelectedItem();
+                paciente.setPlanoSaude(cboPlanoSaude.getSelectionModel().getSelectedItem());
+                Alerta.exibirAlerta("Edição apenas para os campos CRM e Especialidades");
+                pacienteDao.editar(paciente);
+                btnNovo_Click();
+                exibirPacientes();
+                exibirPlanosSaude(); 
+                Alerta.exibirInformacao("Objeto Editado com Sucesso!");
             }
-            exibirPacientes();
-            btnLimpar_Click();
-            txtId.setText(String.valueOf(pacienteSelecionado.getId() + 1L));
-        }catch(Exception ex){
-            ex.printStackTrace();
+        }catch(Exception e){
+            Alerta.exibir(e.getMessage());
         }
     }
     
@@ -121,7 +135,7 @@ public class PacienteController implements Initializable {
             txtId.setText(pacienteSelecionado.getId().toString());
             txtNome.setText(pacienteSelecionado.getNome());
             txtCpf.setText(pacienteSelecionado.getCpf());
-            cboPlanoSaude.getSelectionModel().select(pacienteSelecionado.getPlanoSaudes().get(0));
+            cboPlanoSaude.getSelectionModel().select(pacienteSelecionado.getPlanoSaude());
         }
     }
 

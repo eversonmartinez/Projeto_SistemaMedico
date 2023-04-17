@@ -20,7 +20,7 @@ public class PlanoSaude {
         ultimoId++;
     }
 
-    public String getnome(){
+    public String getNome(){
         return this.nome;
     }
 

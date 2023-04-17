@@ -91,6 +91,8 @@ public class MedicoController implements Initializable {
         stage.setTitle("Cadastro de Pacientes");
         stage.setScene(scene);
         stage.show();
+
+        exibirMedicos();
     }
 
     @FXML
@@ -116,12 +118,14 @@ public class MedicoController implements Initializable {
                 txtId.setText(String.valueOf(medico.getId()+1L));
                 exibirEspecialidades();
                 exibirMedicos();
-                Alerta.exibirInformacao("Novo Objeto Salvo com Sucesso!");
+                Alerta.exibirInformacao("Novo Médico Salvo com Sucesso!");
             }
 
             else{   //edição de um objeto já existente
                 Medico medico = listaMedico.getSelectionModel().getSelectedItem();
                 medico.setCrm(txtCrm.getText());
+                if(medico.getEspecialidades().get(0) != CboEspecialidade.getSelectionModel().getSelectedItem())
+                    medico.adicionarEspecialidade(CboEspecialidade.getSelectionModel().getSelectedItem());
                 Alerta.exibirAlerta("Edição apenas para os campos CRM e Especialidades");
                 medicoDao.editar(medico);
                 btnNovo_Click();

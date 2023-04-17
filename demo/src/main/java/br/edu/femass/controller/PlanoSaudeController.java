@@ -91,7 +91,7 @@ public class PlanoSaudeController implements Initializable{
         PlanoSaude planoSaude = listaPlanoSaude.getSelectionModel().getSelectedItem();
         if(planoSaude!=null){
             txtId.setText(planoSaude.getId().toString());
-            txtNome.setText(planoSaude.getnome());
+            txtNome.setText(planoSaude.getNome());
         }
     }
 

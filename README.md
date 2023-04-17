@@ -3,9 +3,6 @@
 
  Futuros afazeres:
  <ul>
- <li>Possibilitar a reativação de elementos desativados no json</li>
  <li>Adicionar um ícone para o programa</li>
- <li>Adicionar número do plano de saúde</li>
- <li>Permitir adicionar mais de uma especialidade</li>
- <li>Validador de CPF</li>
+
  </ul>
