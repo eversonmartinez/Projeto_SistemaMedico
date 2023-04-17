@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class MainController implements Initializable {
@@ -23,6 +24,7 @@ public class MainController implements Initializable {
 
         Stage stage = new Stage();
         stage.setTitle("Cadastro de Especialidades");
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         stage.setScene(scene);
         stage.show();
     }
@@ -37,6 +39,7 @@ public class MainController implements Initializable {
 
         Stage stage = new Stage();
         stage.setTitle("Cadastro de Médicos");
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         stage.setScene(scene);
         stage.show();
     }
@@ -51,6 +54,7 @@ public class MainController implements Initializable {
 
         Stage stage = new Stage();
         stage.setTitle("Cadastro de Planos de Saúde");
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         stage.setScene(scene);
         stage.show();
     }
@@ -65,6 +69,7 @@ public class MainController implements Initializable {
 
         Stage stage = new Stage();
         stage.setTitle("Cadastro de Pacientes");
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         stage.setScene(scene);
         stage.show();
     }
@@ -79,6 +84,7 @@ public class MainController implements Initializable {
 
         Stage stage = new Stage();
         stage.setTitle("Agenda");
+        stage.getIcons().add(new Image(getClass().getClassLoader().getResourceAsStream("images/icon.png")));
         stage.setScene(scene);
         stage.show();
     }

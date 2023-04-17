@@ -1,0 +1,47 @@
+[ {
+  "nome" : "Zé Roceiro",
+  "cpf" : "52947750004",
+  "crm" : "BR-2022",
+  "especialidades" : [ {
+    "id" : 6,
+    "titulo" : "Neurologista",
+    "ativo" : true
+  }, {
+    "id" : 5,
+    "titulo" : "Infectologista",
+    "ativo" : true
+  }, {
+    "id" : 2,
+    "titulo" : "Cirurgião",
+    "ativo" : true
+  } ],
+  "id" : 1,
+  "ativo" : true
+}, {
+  "nome" : "Silvio Santos",
+  "cpf" : "32871214050",
+  "crm" : "BRRJ-83732",
+  "especialidades" : [ {
+    "id" : 7,
+    "titulo" : "Oftalmologista",
+    "ativo" : true
+  }, {
+    "id" : 6,
+    "titulo" : "Neurologista",
+    "ativo" : true
+  }, {
+    "id" : 5,
+    "titulo" : "Infectologista",
+    "ativo" : true
+  }, {
+    "id" : 4,
+    "titulo" : "Ginecologista",
+    "ativo" : true
+  }, {
+    "id" : 9,
+    "titulo" : "Pediatra",
+    "ativo" : true
+  } ],
+  "id" : 2,
+  "ativo" : true
+} ]

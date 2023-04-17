@@ -1,0 +1,161 @@
+[ {
+  "id" : 4,
+  "paciente" : {
+    "nome" : "Fidel Castro",
+    "cpf" : "26258036066",
+    "planoSaude" : {
+      "id" : 8,
+      "nome" : "Sem Plano de Saúde",
+      "ativo" : true
+    },
+    "id" : 1,
+    "ativo" : true
+  },
+  "medico" : {
+    "nome" : "Zé Roceiro",
+    "cpf" : "52947750004",
+    "crm" : "BR-2022",
+    "especialidades" : [ {
+      "id" : 6,
+      "titulo" : "Neurologista",
+      "ativo" : true
+    }, {
+      "id" : 5,
+      "titulo" : "Infectologista",
+      "ativo" : true
+    }, {
+      "id" : 2,
+      "titulo" : "Cirurgião",
+      "ativo" : true
+    } ],
+    "id" : 1,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 5,
+    "titulo" : "Infectologista",
+    "ativo" : true
+  },
+  "horario" : "2023-04-15T07:35:00",
+  "ativo" : true
+}, {
+  "id" : 8,
+  "paciente" : {
+    "nome" : "Luisa Sonza",
+    "cpf" : "56933406008",
+    "planoSaude" : {
+      "id" : 2,
+      "nome" : "Bradesco Saúde",
+      "ativo" : true
+    },
+    "id" : 3,
+    "ativo" : true
+  },
+  "medico" : {
+    "nome" : "Silvio Santos",
+    "cpf" : "32871214050",
+    "crm" : "BRRJ-83732",
+    "especialidades" : [ {
+      "id" : 7,
+      "titulo" : "Oftalmologista",
+      "ativo" : true
+    }, {
+      "id" : 6,
+      "titulo" : "Neurologista",
+      "ativo" : true
+    }, {
+      "id" : 5,
+      "titulo" : "Infectologista",
+      "ativo" : true
+    }, {
+      "id" : 4,
+      "titulo" : "Ginecologista",
+      "ativo" : true
+    }, {
+      "id" : 9,
+      "titulo" : "Pediatra",
+      "ativo" : true
+    } ],
+    "id" : 2,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 5,
+    "titulo" : "Infectologista",
+    "ativo" : true
+  },
+  "horario" : "2023-04-17T10:35:00",
+  "ativo" : true
+}, {
+  "id" : 3,
+  "paciente" : {
+    "nome" : "Fidel Castro",
+    "cpf" : "26258036066",
+    "planoSaude" : {
+      "id" : 8,
+      "nome" : "Sem Plano de Saúde",
+      "ativo" : true
+    },
+    "id" : 1,
+    "ativo" : true
+  },
+  "medico" : {
+    "nome" : "Silvio Santos",
+    "cpf" : "32871214050",
+    "crm" : "BRRJ-837334",
+    "especialidades" : [ {
+      "id" : 8,
+      "titulo" : "Otorrinolaringologista",
+      "ativo" : true
+    } ],
+    "id" : 2,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 1,
+    "titulo" : "Cardiologista",
+    "ativo" : true
+  },
+  "horario" : "2023-04-17T10:40:00",
+  "ativo" : true
+}, {
+  "id" : 1,
+  "paciente" : {
+    "nome" : "Luisa Sonza",
+    "cpf" : "56933406008",
+    "planoSaude" : {
+      "id" : 7,
+      "nome" : "Cartão de Todos",
+      "ativo" : true
+    },
+    "id" : 3,
+    "ativo" : true
+  },
+  "medico" : {
+    "nome" : "Zé Roceiro",
+    "cpf" : "52947750004",
+    "crm" : "BR-2022",
+    "especialidades" : [ {
+      "id" : 6,
+      "titulo" : "Neurologista",
+      "ativo" : true
+    }, {
+      "id" : 5,
+      "titulo" : "Infectologista",
+      "ativo" : true
+    }, {
+      "id" : 2,
+      "titulo" : "Cirurgião",
+      "ativo" : true
+    } ],
+    "id" : 1,
+    "ativo" : true
+  },
+  "especialidade" : {
+    "id" : 5,
+    "titulo" : "Infectologista",
+    "ativo" : true
+  },
+  "horario" : "2023-04-17T10:35:00",
+  "ativo" : true
+} ]

@@ -50,7 +50,7 @@ public class MedicoEspecialidadeController implements Initializable{
             try{
                 medico.excluirEspecialidade(especialidade);
                 if(!medicoDao.editar(medico))
-                    Alerta.exibir("Não foi possível excluir o especialidade selecionada!");
+                    Alerta.exibir("Não foi possível excluir a especialidade selecionada!");
             }
             catch(Exception ex){
                 ex.printStackTrace();
@@ -63,7 +63,7 @@ public class MedicoEspecialidadeController implements Initializable{
 
     @FXML
     private void btnGravar_Click(){
-        try{
+       try{
             if(cboEspecialidade.getSelectionModel().getSelectedItem()==null){
                 Alerta.exibir("Selecione uma especialidade!");
                 return;
@@ -71,12 +71,14 @@ public class MedicoEspecialidadeController implements Initializable{
             Medico medico = ccbMedico.getSelectionModel().getSelectedItem();
             Especialidade especialidade = cboEspecialidade.getSelectionModel().getSelectedItem();
             medico.adicionarEspecialidade(especialidade);
-            if(!medicoDao.editar(medico)){
+            if(!medicoDao.editar(medico, especialidade)){
                 Alerta.exibir("Não foi possível gravar a nova especialidade");
                 return;
             }
+            exibirMedicos();
             cboEspecialidade.getSelectionModel().select(null);
             ccbMedico.getSelectionModel().select(medico);
+            ccbMedico.getSelectionModel().isSelected(1);
             exibirEspecialidades(new ActionEvent());
             
         }catch(Exception e){
@@ -97,8 +99,10 @@ public class MedicoEspecialidadeController implements Initializable{
     private void exibirEspecialidades(ActionEvent event){
         try{
             Medico medico = ccbMedico.getValue();
-            ObservableList<Especialidade> data = FXCollections.observableArrayList(medico.getEspecialidades());
-            listaEspecialidade.setItems(data);
+            if(medico!=null){
+                ObservableList<Especialidade> data = FXCollections.observableArrayList(medico.getEspecialidades());
+                listaEspecialidade.setItems(data);
+            }
         }catch(Exception ex){
             ex.printStackTrace();
         }

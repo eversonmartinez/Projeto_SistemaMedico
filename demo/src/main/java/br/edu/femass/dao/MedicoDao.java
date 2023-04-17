@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 
+import br.edu.femass.model.Especialidade;
 import br.edu.femass.model.Medico;
 
 public class MedicoDao extends Persist implements Dao<Medico> {
@@ -47,8 +48,38 @@ public class MedicoDao extends Persist implements Dao<Medico> {
         Set <Medico> medicos = buscar();
         for(Medico medico: medicos){
             if(medico.equals(objeto)){
-                medico.setCrm(objeto.getCrm());
-                medico.setEspecialidades(objeto.getEspecialidades());
+                medico.setEspecialidades(objeto.getEspecialidades());       
+            }
+        }
+
+        om.writerWithDefaultPrettyPrinter().writeValue(arquivo, medicos);
+        return true;
+    }
+
+    public boolean editar(Medico objeto, Especialidade especialidade, String crm) throws StreamWriteException, DatabindException, IOException {
+        Set <Medico> medicos = buscar();
+        for(Medico medico: medicos){
+            if(medico.equals(objeto)){
+                if(medico.possuiEspecialidade(especialidade) && medico.getCrm().equals(crm))
+                    return false;
+                if(!medico.getCrm().equals(crm))
+                    medico.setCrm(crm);
+                if(!medico.possuiEspecialidade(especialidade))
+                    medico.adicionarEspecialidade(especialidade);        
+            }
+        }
+
+        om.writerWithDefaultPrettyPrinter().writeValue(arquivo, medicos);
+        return true;
+    }
+
+    public boolean editar(Medico objeto, Especialidade especialidade) throws StreamWriteException, DatabindException, IOException {
+        Set <Medico> medicos = buscar();
+        for(Medico medico: medicos){
+            if(medico.equals(objeto)){
+                if(medico.possuiEspecialidade(especialidade))
+                    return false;
+                medico.adicionarEspecialidade(especialidade);         
             }
         }
 

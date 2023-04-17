@@ -40,6 +40,18 @@ public class MedicoTest {
         assertEquals(false, medico.getEspecialidades().remove(especialidade)); //retorna false pois essa especialidade não está mais na lista
     }
 
+    @Test
+    void testPossuiEspecialidadePrimeiraPosicao(){
+        assertEquals(true, medico.possuiEspecialidade(new Especialidade("Cardiologista")));
+    }
+
+    @Test
+    void testPossuiEspecialidadeOutraPosicao(){
+        medico.adicionarEspecialidade(new Especialidade("Ortopedista"));
+        medico.adicionarEspecialidade(new Especialidade("Cirurgião"));
+        assertEquals(true, medico.possuiEspecialidade(new Especialidade("Cirurgião")));
+    }
+
     //Os demais sao apenas testes básicos de getters and setters
     @Test
     void testGetCpf() {

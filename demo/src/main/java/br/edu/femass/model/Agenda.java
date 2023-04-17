@@ -68,7 +68,6 @@ public class Agenda {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((paciente == null) ? 0 : paciente.hashCode());
         result = prime * result + ((medico == null) ? 0 : medico.hashCode());
         result = prime * result + ((horario == null) ? 0 : horario.hashCode());
         return result;
@@ -83,11 +82,6 @@ public class Agenda {
         if (getClass() != obj.getClass())
             return false;
         Agenda other = (Agenda) obj;
-        if (paciente == null) {
-            if (other.paciente != null)
-                return false;
-        } else if (!paciente.equals(other.paciente))
-            return false;
         if (medico == null) {
             if (other.medico != null)
                 return false;
